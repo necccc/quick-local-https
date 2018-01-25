@@ -5,7 +5,7 @@ services:
   https:
     ports: # ports to bind to "outer:inner", outer is what you'll type in the browser
       - "8080:80"   # HTTP port
-      - "4433:443"  # HTTPS port
+      - "443:443"  # HTTPS port
     volumes:
       - .:/usr/share/nginx/html # this means the current directory (.) will be the document root
       # you should not edit anything below

@@ -7,7 +7,13 @@ Really small and quick https server for serving static html. Great for POC's pro
 - install docker
 - clone this repo
 - run `docker-compose up -d`
-- open your browser and go to [https://0.0.0.0:4433](https://0.0.0.0:4433)
+- open your browser and go to [https://0.0.0.0](https://0.0.0.0)
+- you have to set the page as exception, since the cert is self-signed
+- you'll see the `index.html` in this repo over https
+
+## Configuration
+
+See the `docker-compose.yml` to set port, paths, etc if necessary.
 
 ## Recreate SSL cert
 
