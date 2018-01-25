@@ -1,0 +1,18 @@
+---
+version: '2'
+
+services:
+  https:
+    ports: # ports to bind to "outer:inner", outer is what you'll type in the browser
+      - "8080:80"   # HTTP port
+      - "4433:443"  # HTTPS port
+    volumes:
+      - .:/usr/share/nginx/html # this means the current directory (.) will be the document root
+      # you should not edit anything below
+      - ./nginx-https/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx-https/start.sh:/usr/share/nginx/start.sh
+      - ./nginx-https/nginx.crt:/etc/nginx/ssl/server.crt
+      - ./nginx-https/nginx.key:/etc/nginx/ssl/server.key
+    image: nginx:alpine
+    working_dir: /usr/share/nginx/html
+    command: ["sh", "/usr/share/nginx/start.sh"]
